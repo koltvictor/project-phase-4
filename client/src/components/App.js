@@ -30,17 +30,22 @@ function App() {
 
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:3000/authors")
-    .then(response => response.json())
-    .then(authorArr => setGetAuthors(authorArr))
-    }, [setNewAuthor, newAuthorInput, newBookInput])
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/authors")
+  //   .then(response => response.json())
+  //   .then(authorArr => setGetAuthors(authorArr))
+  //   }, [setNewAuthor, newAuthorInput, newBookInput])
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/books`)
+  //   .then(resp => resp.json())
+  //   .then(books => setBooksList(books))
+  // },[setNewBook, newBookInput, newAuthorInput]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/books`)
     .then(resp => resp.json())
-    .then(books => setBooksList(books))
-  },[setNewBook, newBookInput, newAuthorInput]);
+    .then(books => console.log(books));})
 
   function handleSubmit(e) {
 
@@ -55,7 +60,7 @@ function App() {
       .then(() => setNewBook({title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}))
     }
     else 
-    {fetch(`http://localhost:3000/authors`, {
+    {fetch(`http://localhost:3000/books`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newAuthorInput)})
