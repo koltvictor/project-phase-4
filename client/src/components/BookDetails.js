@@ -18,7 +18,7 @@ function BookDetails() {
                        setAuthors(book.authors)})
     }, [id])
 
-    const {title, image, isbn, desc, publisher} = singleBook
+    const {title, image_url, isbn, desc, publisher} = singleBook
     
     const authorNames = authors.map(el => {
         return (<Link to={`/authors`} key={el.name}>
@@ -28,7 +28,7 @@ function BookDetails() {
 
     return (
         <div className='bookDetails'>
-            <img src={image !== ''? image : placeHolder} alt={title}/>
+            <img src={image_url !== ''? image_url : placeHolder} alt={title}/>
 
             <h1>{title}</h1><br />
             <h2>Authored By:</h2>
