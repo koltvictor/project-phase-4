@@ -18,7 +18,7 @@ function BookDetails() {
                        setAuthors(book.authors)})
     }, [id])
 
-    const {title, image_url, isbn, desc, publisher} = singleBook
+    const {title, image_url, isbn, description, publisher} = singleBook
     
     const authorNames = authors.map(el => {
         return (<Link to={`/authors`} key={el.name}>
@@ -35,7 +35,7 @@ function BookDetails() {
             {authorNames}<br />
             <h3>{publisher} Publishing House</h3>
             <p>ISBN-10: {isbn}</p>
-            <p>{desc}</p>
+            <p>{description}</p>
             <Link to='/books' onClick={() => history.goBack()}>
                 <button>Go Back</button>
             </Link>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function AuthorCard({authorObj}) {
 
-    const {image_url, name, desc, books} = authorObj;
+    const {image_url, name, description, books} = authorObj;
 
     const bookTitles = books.map(book => 
         <Link to={`/books/${book.id}`} key={book.title}><p>{book.title}</p></Link>)
@@ -32,7 +32,7 @@ function AuthorCard({authorObj}) {
             ):(
                 <div className="author-card">
                 <h4>{name}</h4>
-                <p>{desc}</p>
+                <p>{description}</p>
                 <h4>Books:</h4>
                 {bookPlacehold}
             </div>
