@@ -1,17 +1,18 @@
 import { useState } from 'react';
-// import Select from 'react-select';
-// import makeAnimated from 'react-select/animated';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 
 function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
 
     const [selectedAuthors, SetSelectedAuthors] = useState([]);
 
+    const animatedComponents = makeAnimated();
     const authorNames = [];
 
     getAuthors.map(author => authorNames.push({value: author.name, label: author.name, id: author.id}))
 
-    const {title, image, isbn, desc, publisher} = newBookInput
+    const {title, image, isbn, desc, publisher, author} = newBookInput
 
     return (
         <div className='book-form'>
@@ -55,6 +56,17 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                        name='publisher'
                        value={publisher}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
+
+              <Select
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                     value={author}
+                    onChange={e => {
+                        setNewBook(formerBook => ({...formerBook, author: e}));
+                        SetSelectedAuthors(e)}}
+                    defaultValue={[authorNames[4]]}
+                    isMulti
+                    options={authorNames} />
 
               <input type='submit'
                      value='Submit' />

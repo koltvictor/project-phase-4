@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Auth from './Auth'
 import UnAuth from './UnAuth'
 function App() {
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState("test")
     const [authChecked, setAuthChecked] = useState(null)
     useEffect(() => {
       fetch('/api/me', {
