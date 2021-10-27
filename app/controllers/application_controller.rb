@@ -14,8 +14,9 @@ class ApplicationController < ActionController::API
   end 
 
   def authorize 
+    @current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
     # @current_user = User.find_by(id: session[:user_id])
-    @current_user = User.first
+    # @current_user = User.first
     render json: {error: "Please Login :-)"}, status: :unauthorized unless @current_user
   end 
 

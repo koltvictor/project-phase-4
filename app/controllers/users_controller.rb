@@ -9,9 +9,13 @@ class UsersController < ApplicationController
         status: :created
     end 
 
-    def show 
-        render json: @current_user 
-    end 
+    def show
+        if @current_user
+          render json: @current_user, status: :ok
+        else
+          render json: { error: 'No active session' }, status: :unauthorized
+        end
+      end
 
     private 
 

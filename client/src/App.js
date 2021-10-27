@@ -4,8 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 import Auth from './Auth'
 import UnAuth from './UnAuth'
 function App() {
-    const [currentUser, setCurrentUser] = useState("test")
-    const [authChecked, setAuthChecked] = useState(null)
+    const [currentUser, setCurrentUser] = useState(null)
+    // const [authChecked, setAuthChecked] = useState(true)
+
     useEffect(() => {
       fetch('/api/me', {
         credentials: 'include'
@@ -14,14 +15,16 @@ function App() {
           if (res.ok) {
             res.json().then((user) => {
               setCurrentUser(user)
-              setAuthChecked(true)
+              // setAuthChecked(true)
             })
           } else {
-            setAuthChecked(true)
+            // setAuthChecked(true)
           }
         })
     }, [])
+
   // if(!authChecked) { return <div></div>}
+
   return (
     <div className="App">
       <Route>

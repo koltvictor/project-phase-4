@@ -40,36 +40,39 @@
 
 import React, { useState } from 'react'
 import { Redirect, useHistory, Link } from 'react-router-dom'
+
 function LogIn({ setCurrentUser }) {
+
   const history = useHistory()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-// const handleSubmit = (event) => {
-//     event.preventDefault()
-//     fetch('/login', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({username, password})
-//     })
-//       .then(res => {
-//         if (res.ok) {
-//           res.json().then(user => {
-//             setCurrentUser(user)
-//             history.push('/groups')
-//           })
-//         } else {
-//           res.json().then(errors => {
-//             console.error(errors)
-//           })
-//         }
-//       })
-//   }
+
+const handleSubmit = (event) => {
+    event.preventDefault()
+    fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username, password})
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then(user => {
+            setCurrentUser(user)
+            history.push('/books')
+          })
+        } else {
+          res.json().then(errors => {
+            console.error(errors)
+          })
+        }
+      })
+  }
   return (
     <div >
-      {/* <Redirect to="/" /> */}
-      <form onSubmit={null}>
+      <Redirect to="/" />
+      <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <p>
           <label>
