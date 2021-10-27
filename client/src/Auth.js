@@ -33,11 +33,11 @@ function Auth({ currentUser, setCurrentUser }) {
   };
 
   const [newBookInput, setNewBook] = useState(
-    {title: '', image: '', isbn: '', desc: '', publisher: '', author: []}
+    {title: '', image_url: '', isbn: '', description: '', publisher: '', price: '', author: []}
     );
 
   const [newAuthorInput, setNewAuthor] = useState(
-    {name: '', image: '', desc: ''}
+    {name: '', image_url: '', description: ''}
     );
 
   const [booksList, setBooksList] = useState([]);
@@ -71,15 +71,15 @@ function Auth({ currentUser, setCurrentUser }) {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newBookInput)})
       .then(resp => resp.json())
-      .then(() => setNewBook({title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}))
+      .then(() => setNewBook({title: '', image_url: '', isbn: '', description: '', publisher: '', price: '', author: []}))
     }
     else
-    {fetch(`http://localhost:3000/books`, {
+    {fetch(`http://localhost:3000/authors`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newAuthorInput)})
       .then(resp => resp.json())
-      .then(() => setNewAuthor({name: '', image: '', desc: ''}))
+      .then(() => setNewAuthor({name: '', image_url: '', description: ''}))
     }
   };
 

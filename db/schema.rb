@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_224639) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: true
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 

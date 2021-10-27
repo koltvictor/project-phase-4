@@ -13,7 +13,12 @@ class BooksController < ApplicationController
     end
 
     def create 
+        # byebug
         @new_book = Book.create!(book_params)
+        @authors = params[:author].each do |author|
+            @new_book.authors=Author.find(author[:id]) 
+            # puts author
+        end 
         render json: @new_book,
         status: :created
     end 
@@ -21,7 +26,7 @@ class BooksController < ApplicationController
     private 
 
     def book_params 
-        params.permit(:title, :image_url, :isbn, :description, :publisher, :price, :user_id)
+        params.permit(:title, :image_url, :isbn, :description, :publisher, :price)
     end 
 
     def not_found
