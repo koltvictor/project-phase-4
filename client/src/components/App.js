@@ -69,8 +69,10 @@ function App() {
     }
   }
 
-  const filteredBooks =  booksList.filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
-  const filteredAuthors =  getAuthors.filter(author => author.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredBooks =  booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()))
+  const filteredAuthors =  getAuthors.filter(author => (author.name||'').toLowerCase().includes(search.toLowerCase()))
+
+
 
   return (
     <div className="App">

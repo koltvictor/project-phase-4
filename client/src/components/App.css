@@ -7,7 +7,7 @@
 
 .App-header {
   background-color: #58c45ca3;
-  min-height: 50vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,10 @@
   font-size: calc(10px + 1vmin);
   color: rgb(255, 255, 255);
   background-image: url(https://img2.pngio.com/green-city-png-2-png-image-green-city-png-1160_700.png) ;
-  margin: 0;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .App-header h1 {
@@ -35,16 +38,18 @@
 
 .books-container,
 .authors-container {
-  width: 1500px;
-  height: 1500px;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin: 8rem;
 }
 
 .book-cards,
 .author-cards {
-  justify-content: center;
-  margin-left: 11vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: .5rem;
+  padding: 5px;
+  margin: 10px;
+  border-width: .5em;
+  text-align: center;
 }
 
 .bookCard {
