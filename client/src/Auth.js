@@ -1,57 +1,53 @@
 import './App.css';
-
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-
-import Header from './Header';
-import Search from './Search';
-
-import NewBookForm from './NewBookForm';
-import NewAuthorForm from './NewAuthorForm';
-
-import BookList from './BookList';
-import AuthorList from './AuthorList';
-import BookDetails from './BookDetails';
-
-
-function App() {
-
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import Header from './components/Header';
+import Search from './components/Search';
+import NewBookForm from './components/NewBookForm';
+import NewAuthorForm from './components/NewAuthorForm';
+import BookList from './components/BookList';
+import AuthorList from './components/AuthorList';
+import BookDetails from './components/BookDetails';
+function Auth({ currentUser, setCurrentUser }) {
+  const history = useHistory()
+  const handleLogout = () => {
+    fetch(`/logout`, {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+      .then(res => {
+        if (res.ok) {
+          setCurrentUser(null)
+          history.push('/')
+        }
+      })
+  }
   const [newBookInput, setNewBook] = useState(
     {title: '', image: '', isbn: '', desc: '', publisher: '', author: []}
     );
-
   const [newAuthorInput, setNewAuthor] = useState(
     {name: '', image: '', desc: ''}
     );
-
   const [booksList, setBooksList] = useState([]);
-
   const [getAuthors, setGetAuthors] = useState([]);
-
   const [search, setSearch] = useState("");
-
   useEffect(() => {
     fetch("http://localhost:3000/authors")
     .then(response => response.json())
     .then(authorArr => setGetAuthors(authorArr))
     }, [setNewAuthor, newAuthorInput, newBookInput])
-
   useEffect(() => {
     fetch(`http://localhost:3000/books`)
     .then(resp => resp.json())
     .then(books => setBooksList(books))
   },[setNewBook, newBookInput, newAuthorInput]);
-
   useEffect(() => {
     fetch(`http://localhost:3000/books`)
     .then(resp => resp.json())
     .then(books => console.log(books));})
-
   function handleSubmit(e) {
-
     e.preventDefault();
-
-    if(e.target.id === 'newBookForm') 
+    if(e.target.id === 'newBookForm')
     {fetch(`http://localhost:3000/books`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -59,7 +55,7 @@ function App() {
       .then(resp => resp.json())
       .then(() => setNewBook({title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}))
     }
-    else 
+    else
     {fetch(`http://localhost:3000/books`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -68,49 +64,39 @@ function App() {
       .then(() => setNewAuthor({name: '', image: '', desc: ''}))
     }
   }
-
   const filteredBooks =  booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()))
   const filteredAuthors =  getAuthors.filter(author => (author.name||'').toLowerCase().includes(search.toLowerCase()))
-
-
-
   return (
     <div className="App">
-
-      <Header />
+      <Header
+      setCurrentUser={setCurrentUser}
+      currentUser={currentUser}
+      handleLogout={handleLogout}/>
       {/* <Search search={search} setSearch={setSearch}/> */}
-
       <Switch>
-
         <Route path='/books/new'>
           <NewBookForm newBookInput={newBookInput}
                       setNewBook={setNewBook}
                       handleSubmit={handleSubmit}
                       getAuthors={getAuthors} />
         </Route>
-
-        <Route path='/books/:id' component={BookDetails} />
-
+        <Route path='/books/:id' component={BookDetails} >
+        </Route>
         <Route path='/authors/new'>
           <NewAuthorForm newAuthorInput={newAuthorInput}
                       setNewAuthor={setNewAuthor}
                       handleSubmit={handleSubmit} />
         </Route>
-
         <Route path='/authors'>
           <Search search={search} setSearch={setSearch}/>
-          <AuthorList filteredAuthors={filteredAuthors}/>
+          <AuthorList filteredAuthors={filteredAuthors, setNewAuthor, newAuthorInput, newBookInput}/>
         </Route>
-
         <Route path='/'>
           <Search search={search} setSearch={setSearch}/>
           <BookList filteredBooks={filteredBooks}/>
         </Route>
-
       </Switch>
-      
     </div>
   );
 }
-
-export default App;
+export default Auth;
