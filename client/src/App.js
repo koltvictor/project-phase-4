@@ -1,12 +1,13 @@
 import './App.css';
 
 import React, { useState, useEffect } from 'react';
-
 import { Route, Switch } from 'react-router-dom';
+
 import Auth from './Auth';
 import UnAuth from './UnAuth';
 
 function App() {
+
     const [currentUser, setCurrentUser] = useState(null)
     const [authChecked, setAuthChecked] = useState(false)
 
@@ -26,7 +27,7 @@ function App() {
         })
     }, [])
 
-  if(authChecked) { return <div>UGH</div>}
+  if(!authChecked) { return <div>UGH</div>}
 
   return (
     <div className="App">

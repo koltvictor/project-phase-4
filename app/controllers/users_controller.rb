@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorize, only: :create 
+    skip_before_action :confirm_auth
 
     def create 
         @new_user = User.create!(user_params)
@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     end 
 
     def show
-        if @current_user
-          render json: @current_user, status: :ok
+        if current_user
+          render json: current_user, status: :ok
         else
           render json: { error: 'No active session' }, status: :unauthorized
         end

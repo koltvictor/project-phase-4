@@ -2,6 +2,9 @@ class BooksController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
+    before_action :set_book, only: [:destroy]
+    before_action :authorize, only: [:destroy]
+
     def index 
         render json: Book.all
     end 
@@ -28,8 +31,7 @@ class BooksController < ApplicationController
     end 
 
     def destroy 
-        book = Book.find_by(id: params[:id])
-        book.destroy 
+        @book.destroy 
         head :no_content 
     end 
 
@@ -42,6 +44,18 @@ class BooksController < ApplicationController
     def not_found
         render json: {error: "Book Is Not In The Database!"},
         status: :not_found 
+    end
+
+    def set_book
+        @book = Book.find(params[:id])
+    end 
+
+    def authorize 
+        can_modify = @book.user == current_user
+        if !can_modify
+            render json: {error: "Only A Seller Can Delete A Book"},
+            status: :forbidden
+        end
     end
 
 end

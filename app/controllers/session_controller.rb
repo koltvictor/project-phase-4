@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
 
-    skip_before_action :authorize
+    skip_before_action :confirm_auth, only: [:create]
 
     def create 
         @user = User&.find_by_username(params[:username])

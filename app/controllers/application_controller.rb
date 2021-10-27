@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordInvalid, with: :invalid 
 
-  before_action :authorize
+  before_action :confirm_auth
 
   private 
 
@@ -13,10 +13,11 @@ class ApplicationController < ActionController::API
     status: :unprocessable_entity 
   end 
 
-  def authorize 
-    # @current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
-    @current_user ||= User.find_by_id(session[:user_id])
-    # @current_user = User.first
+  def current_user 
+    @current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
+  end
+
+  def confirm_auth 
     render json: {error: "Please Login :-)"}, status: :unauthorized unless @current_user
   end 
 
