@@ -49,7 +49,7 @@ function LogIn({ setCurrentUser }) {
 
 const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3001/login', {
+    fetch('http://[::1]:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

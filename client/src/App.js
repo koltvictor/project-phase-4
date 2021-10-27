@@ -1,29 +1,32 @@
 import './App.css';
-import React,{ useState, useEffect } from 'react';
+
+import React, { useState, useEffect } from 'react';
+
 import { Route, Switch } from 'react-router-dom';
-import Auth from './Auth'
-import UnAuth from './UnAuth'
+import Auth from './Auth';
+import UnAuth from './UnAuth';
+
 function App() {
     const [currentUser, setCurrentUser] = useState(null)
-    // const [authChecked, setAuthChecked] = useState(true)
+    const [authChecked, setAuthChecked] = useState(false)
 
     useEffect(() => {
-      fetch('/api/me', {
+      fetch('/me', {
         credentials: 'include'
       })
         .then(res => {
           if (res.ok) {
             res.json().then((user) => {
               setCurrentUser(user)
-              // setAuthChecked(true)
+              setAuthChecked(true)
             })
           } else {
-            // setAuthChecked(true)
+            setAuthChecked(true)
           }
         })
     }, [])
 
-  // if(!authChecked) { return <div></div>}
+  if(authChecked) { return <div>UGH</div>}
 
   return (
     <div className="App">

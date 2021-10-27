@@ -49,13 +49,13 @@ function Auth({ currentUser, setCurrentUser }) {
   useEffect(() => {
     fetch("http://localhost:3000/authors")
     .then(response => response.json())
-    .then(authorArr => setGetAuthors(authorArr))
+    .then(authorArr => console.log(authorArr))
     }, [setNewAuthor, newAuthorInput, newBookInput])
 
   useEffect(() => {
     fetch(`http://localhost:3000/books`)
     .then(resp => resp.json())
-    .then(books => setBooksList(books))
+    .then(books => console.log(books))
   },[setNewBook, newBookInput, newAuthorInput]);
 
   // useEffect(() => {
@@ -83,9 +83,9 @@ function Auth({ currentUser, setCurrentUser }) {
     }
   };
 
-  const filteredBooks =  booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()));
+  const filteredBooks = booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()));
 
-  const filteredAuthors =  getAuthors.filter(author => author.name.toLowerCase().includes(search.toLowerCase()));
+  const filteredAuthors = getAuthors.filter(author => (author.name||'').toLowerCase().includes(search.toLowerCase()));
 
 
   return (

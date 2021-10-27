@@ -68,35 +68,35 @@ function SignUp({ setCurrentUser }) {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
-//   const handleSubmit = (event) => {
-//     event.preventDefault()
-//     fetch('/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         username,
-//         password,
-//         password_confirmation: passwordConfirmation
-//       })
-//     })
-//       .then(res => {
-//         if (res.ok) {
-//           res.json().then(user => {
-//             setCurrentUser(user)
-//             history.push('/groups')
-//           })
-//         } else {
-//           res.json().then(errors => {
-//             console.error(errors)
-//           })
-//         }
-//       })
-//   }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    fetch('/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        password_confirmation: passwordConfirmation
+      })
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then(user => {
+            setCurrentUser(user)
+            history.push('/groups')
+          })
+        } else {
+          res.json().then(errors => {
+            console.error(errors)
+          })
+        }
+      })
+  }
   return (
     <div >
-      <form onSubmit={null}>
+      <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <p>
           <label>

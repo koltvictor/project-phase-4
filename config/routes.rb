@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show, :create, :destroy]
 
-  get '/api/me', to: 'users#show'
+  get '/me', to: 'users#show'
 
-  post '/api/signup', to: 'users#create'
+  post '/signup', to: 'users#create'
 
-  post '/api/login', to: 'sessions#create'
+  post '/login', to: 'session#create'
 
-  delete '/api/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'session#destroy'
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
