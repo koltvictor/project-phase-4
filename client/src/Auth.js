@@ -47,15 +47,15 @@ function Auth({ currentUser, setCurrentUser }) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/authors")
+    fetch("/authors")
     .then(response => response.json())
-    .then(authorArr => console.log(authorArr))
+    .then(authorArr => setGetAuthors(authorArr))
     }, [setNewAuthor, newAuthorInput, newBookInput])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books`)
+    fetch(`/books`)
     .then(resp => resp.json())
-    .then(books => console.log(books))
+    .then(books => setBooksList(books))
   },[setNewBook, newBookInput, newAuthorInput]);
 
   function handleSubmit(e) {

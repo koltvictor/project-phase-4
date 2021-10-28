@@ -12,7 +12,7 @@ function BookDetails() {
     let history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/books/${id}`)
+        fetch(`/books/${id}`)
         .then(resp => resp.json())
         .then(book => {setSingleBook(book);
                        setAuthors(book.authors)})

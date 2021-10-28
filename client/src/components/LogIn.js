@@ -9,7 +9,7 @@ function LogIn({ setCurrentUser }) {
 
 const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://[::1]:3000/login', {
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -17,6 +17,7 @@ const handleSubmit = (event) => {
       body: JSON.stringify({username, password})
     })
       .then(res => {
+        console.log(res)
         if (res.ok) {
           res.json().then(user => {
             console.log(user)

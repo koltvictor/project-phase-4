@@ -27,7 +27,7 @@ function App() {
         })
     }, [])
 
-  if(authChecked) { return <div>UGH</div>}
+  if(!authChecked) { return <div>UGH</div>}
 
   return (
     <div className="App">

@@ -18,7 +18,8 @@ class ApplicationController < ActionController::API
   end
 
   def confirm_auth 
-    render json: {error: "Please Login :-)"}, status: :unauthorized unless @current_user
+    # byebug
+    render json: {error: "Please Login :-)"}, status: :unauthorized unless current_user
   end 
 
 end
