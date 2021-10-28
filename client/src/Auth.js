@@ -2,7 +2,7 @@ import './App.css';
 
 import { useState, useEffect } from 'react';
 
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 import Header from './components/Header';
 
@@ -57,11 +57,6 @@ function Auth({ currentUser, setCurrentUser }) {
     .then(resp => resp.json())
     .then(books => console.log(books))
   },[setNewBook, newBookInput, newAuthorInput]);
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/books`)
-  //   .then(resp => resp.json())
-  //   .then(books => console.log(books));})
 
   function handleSubmit(e) {
     e.preventDefault();

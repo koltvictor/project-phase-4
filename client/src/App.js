@@ -1,7 +1,7 @@
 import './App.css';
 
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Auth from './Auth';
 import UnAuth from './UnAuth';
@@ -27,11 +27,11 @@ function App() {
         })
     }, [])
 
-  if(!authChecked) { return <div>UGH</div>}
+  if(authChecked) { return <div>UGH</div>}
 
   return (
     <div className="App">
-      <Route>
+      <Router>
       {currentUser ? (
           <Auth
             setCurrentUser={setCurrentUser}
@@ -43,8 +43,9 @@ function App() {
           />
         )
       }
-      </Route>
+      </Router>
     </div>
   );
 }
+
 export default App;
