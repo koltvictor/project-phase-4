@@ -15,8 +15,8 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
     const {title, image_url, isbn, description, publisher, author, price} = newBookInput
 
     return (
-        <>
-        <div className='bar'><h1>Add A New Book!</h1></div>
+        <div className='addBookPage'><br/><br/><br/>
+        <div className='bar'><h2>Sell A Book</h2></div>
         <div className='book-form'>
 
 
@@ -76,7 +76,8 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                         SetSelectedAuthors(e)}}
                     defaultValue={[authorNames[4]]}
                     isMulti
-                    options={authorNames} />
+                    options={authorNames} 
+                    className='selectMenu'/>
 
               <input type='submit'
                      value='Submit' />
@@ -105,7 +106,7 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
             </div>
  
         </div>
-        </>
+        </div>
     );
 
 }

@@ -6,14 +6,10 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
     console.log(newAuthorInput)
 
     return (
-        <>
-
-        <div className='bar'></div>
-
+        <div className="addAuthorPage"><br /><br /><br />
+        <div className='bar'><h2>Add An Author</h2></div>
         <div className='author-form'>
-
-            <h2>Additional Authors</h2>
-
+ 
             <form id='newAuthorForm' onSubmit={e => handleSubmit(e)}>
 
                 <input type='text'
@@ -43,18 +39,18 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
             </form>
 
             <div className="added-author-info">
-                <h4>New Author Name:</h4>
-                <p>{name}</p>
+                <h5><strong>New Author Name:</strong></h5>
+                <p className="authorInfo">{name}</p>
                 <br />
-                <h4>New Author Image:</h4>
-                <img src={image_url} alt={name}/>
-                <h4>New Author Bio: </h4>
-                <p>{description}</p>
+                <h5>New Author Image:</h5>
+                <img className = "authorImg" src={image_url} alt={name}/>
+                <h5>New Author Bio: </h5>
+                <p className="authorInfo">{description}</p>
             </div>
 
         </div>
 
-        </>
+        </div>
     );
 
 }

@@ -294,7 +294,7 @@ input[type="submit"]:hover {
 
 }
 
-input[type="submit"],
+input[type="submit"], .deleteButton, 
 .bookDetails button {
   margin: 15px;
   border-radius: 25px;
@@ -302,7 +302,6 @@ input[type="submit"],
   width:100px;
   height:40px;
   font-family:'Roboto',sans-serif;
-
 }
 
 input.formText {
@@ -316,11 +315,41 @@ input.formText {
 
 }
 
-.added-author-info,
-.added-book-info
- {
-  
-  background-color:rgba(203, 201, 201, 0.565);
+.addBookPage {
+  background-color: rgba(73, 73, 216, .5);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: rgb(255, 255, 255);
+  background-image: url(https://img2.pngio.com/green-city-png-2-png-image-green-city-png-1160_700.png) ;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.addAuthorPage {
+  background-color: rgba(247, 189, 0, 0.6);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: rgb(255, 255, 255);
+  background-image: url(https://img2.pngio.com/green-city-png-2-png-image-green-city-png-1160_700.png) ;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.added-author-info {  
+  background-image: url("asfalt--dark--1920x1080\ \(1\).png");
+  opacity: 1;
   margin-top: 70px;
   width: 800px;
   height: auto;
@@ -328,10 +357,36 @@ input.formText {
   margin-bottom: 150px;
   font-family:'Roboto',sans-serif;
   padding: 15px;
-  text-align: left;
+  text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  color: rgb(242, 255, 0);
+  border-radius: 2em;
+}
 
+.added-book-info {
+  background-image: url("asfalt--dark--1920x1080.png");
+  opacity: 1;
+  margin-top: 70px;
+  width: 800px;
+  height: auto;
+  display: inline-table;
+  margin-bottom: 150px;
+  font-family:'Roboto',sans-serif;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  color: rgb(76, 184, 250);
+  border-radius: 2em;
+}
 
+.authorImg{
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 1);
+  /* border: solid black; */
+}
+
+.bar {
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 5px 5px 8px #100c01;
 }
 
 .notDisplayed {
@@ -340,4 +395,52 @@ input.formText {
 
 .displayed {
   font-family:'Roboto',sans-serif;
+}
+
+.selectMenu {
+  color: black;
+  font-size: 14px;
+}
+
+.authorInfo {
+  color: black;
+  text-align: center;
+  font-size: 22px;
+}
+
+.myPage{
+  background-color: rgba(227, 247, 0, 0.89);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: rgb(255, 255, 255);
+  background-image: url(https://img2.pngio.com/green-city-png-2-png-image-green-city-png-1160_700.png) ;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.myPageBody{
+  background-image: url('asfalt--dark--1920x1080\ \(2\).png');
+  opacity: 1;
+  margin-top: 70px;
+  width: 800px;
+  height: auto;
+  display: inline-table;
+  margin-bottom: 150px;
+  font-family:'Roboto',sans-serif;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  color: rgb(203, 207, 233);
+  border-radius: 2em;
+}
+
+.myBooksList{
+  color: white;
+  text-align: left;
 }
