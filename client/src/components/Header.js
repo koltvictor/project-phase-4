@@ -20,15 +20,6 @@ function Header({ handleLogout, currentUser }) {
                 <h2>
                     <Link to='/authors' onClick={() => history.push('/authors')}>Authors</Link>
                 </h2>
-            </div>
-
-            <h1>Recycled Reads</h1>
-            <h3 className='welcome'>"Your community collection of pre-loved books!"</h3>
-            <h3 className='userwelcome'>Welcome {currentUser.username}</h3>
-            {/* <img src='https://64.media.tumblr.com/5d2d839cd70bc3db2fa9acddb9cedd92/tumblr_nbpotrjgO11qi4ibzo1_500.gifv' alt='flowers dancing' /> */}
-
-            <div id='navigation'>
-          
                 <h2>
                     <Link to='/me' onClick={() => history.push('/me')}>
                         My Page
@@ -40,6 +31,12 @@ function Header({ handleLogout, currentUser }) {
                     </Link>
                 </h2>
             </div>
+
+            <h1>Recycled Reads</h1>
+            <h3 className='welcome'>"Your community collection of pre-loved books!"</h3>
+            <h3 className='userwelcome'>Welcome {currentUser.username}</h3>
+            {/* <img src='https://64.media.tumblr.com/5d2d839cd70bc3db2fa9acddb9cedd92/tumblr_nbpotrjgO11qi4ibzo1_500.gifv' alt='flowers dancing' /> */}
+
         </div>
     );
 
