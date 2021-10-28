@@ -17,9 +17,9 @@ function SignUp({ setCurrentUser }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username,
-        password,
-        email,
+        username : username,
+        password : password,
+        email : email,
         password_confirmation: passwordConfirmation
       })
     })
@@ -38,11 +38,11 @@ function SignUp({ setCurrentUser }) {
   };
 
   return (
-    <div >
+    <div className="login" >
 
       <form onSubmit={handleSubmit}>
 
-        <h1>Sign Up</h1>
+        <h1 className="loginHeader">Sign Up</h1>
 
         <p>
           <label>
@@ -53,7 +53,7 @@ function SignUp({ setCurrentUser }) {
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
 
@@ -66,7 +66,7 @@ function SignUp({ setCurrentUser }) {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
 
@@ -79,7 +79,7 @@ function SignUp({ setCurrentUser }) {
             name=""
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
 
@@ -92,15 +92,15 @@ function SignUp({ setCurrentUser }) {
             name="password_confirmation"
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
 
-        <p><button className="w-full bg-green-500 py-2 mt-4" type="submit">Sign Up</button></p>
+        <p><button className="loginButton" type="submit">Sign Up</button></p>
 
         <p className="text-center">-- or --</p>
 
-        <p className="text-center"><Link className="py-4 px-6" to="/login">Log In</Link></p>
+        <p className="text-center"><Link className="loginButton" to="/login">Log In</Link></p>
 
       </form>
 
