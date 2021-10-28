@@ -15,7 +15,8 @@ function App() {
       fetch(`/books/${id}`, {
         method: 'DELETE'
       })
-      .then(resp => resp.json())
+      .then(resp => console.log(resp.ok))
+      .then(fetch('/me', {credentials: 'include'}))
     }
 
     useEffect(() => {

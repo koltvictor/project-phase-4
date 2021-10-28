@@ -15,7 +15,7 @@ function Me({ currentUser, handleDelete }) {
             <div className='bar'><h2>{currentUser.username}'s Dashboard</h2></div>
             <div className="myPageBody">
                 <h3>Hi {currentUser.username}!</h3>
-                <h3>Your email address is:  {currentUser.email}</h3><br /><br/>
+                <h3>Your email on file:  {currentUser.email}</h3><br /><br/>
                 <ul className="myBooksList">
                     <h3>My Books</h3>
                     {bookList}

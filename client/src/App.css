@@ -31,9 +31,17 @@
 }
 
 .App-header h3 {
-  font-style: italic;
   font-family: 'Roboto',sans-serif;
   font-size: 28px;
+}
+
+.welcome {
+  font-style: italic;
+}
+
+.userwelcome {
+  text-shadow:2px 2px 8px #100c01;
+
 }
 
 .login{
@@ -75,16 +83,16 @@
   border-radius: 5rem;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.);
   width: auto;
-  background-color: #83cd83d2;
+  background-color:rgba(106, 162, 208, 0.845);
   padding:20px;
   border-radius: 50px;
 }
 
 .loginButton:hover{
-  background-image: url(https://img1.picmix.com/output/stamp/normal/2/5/3/0/1530352_a73bc.gif);
+  background-image: url(https://i.pinimg.com/originals/1e/89/17/1e8917f358abfc8b3e97b4f29d63e175.gif);
   font-weight: bolder;
-  background-color: #6eda72fe;
-  color: white;
+  background-color:rgb(106, 162, 208);
+  color: rgb(185, 185, 185);
 }
 
 .inputField{
@@ -199,13 +207,14 @@
 }
 
 #navigation h2:hover {
-  background-image: url(https://img1.picmix.com/output/stamp/normal/2/5/3/0/1530352_a73bc.gif);
+  background-image: url(https://i.pinimg.com/originals/1e/89/17/1e8917f358abfc8b3e97b4f29d63e175.gif);
   font-weight: bolder;
   background-color: #6eda72fe;
 
 }
 
-#navigation h2 a {
+#navigation h2 a,
+.login a {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   color: rgb(62, 62, 62)
