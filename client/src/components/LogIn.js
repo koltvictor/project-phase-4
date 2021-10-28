@@ -33,16 +33,16 @@ const handleSubmit = (event) => {
   };
 
   return (
-    <div >
+    <div className="login">
 
       <Redirect to="/" />
 
-      <form onSubmit={handleSubmit}>
-
-        <h1>Log In</h1>
+      <form onSubmit={handleSubmit} className="loginForm">
+        
+        <h1 className="loginHeader">Log In</h1>
 
         <p>
-          <label>
+          <label className="label">
             Username
           </label>
           <input
@@ -50,12 +50,12 @@ const handleSubmit = (event) => {
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
 
         <p>
-          <label>          
+          <label className="label">          
             Password
           </label>
           <input
@@ -63,15 +63,16 @@ const handleSubmit = (event) => {
             name=""
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border"
+            className="inputField"
           />
         </p>
-
-        <p><button className="w-full bg-green-500 py-2 mt-4" type="submit">Log In</button></p>
-
+        <br />
+        <p><button className="loginButton" type="submit">Log In</button></p>
+        
         <p className="text-center">-- or --</p>
 
-        <p className="text-center"><Link className="py-4 px-6" to="/signup">Sign Up</Link></p>
+        <p className="text-center"><Link className="loginButton" to="/signup">Sign Up</Link></p>
+        
 
       </form>
 
