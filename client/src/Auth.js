@@ -5,15 +5,17 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import Header from './components/Header';
+import Me from './components/Me';
 
 import Search from './components/Search';
 
-import NewBookForm from './components/NewBookForm';
+import AuthorList from './components/AuthorList';
 import NewAuthorForm from './components/NewAuthorForm';
 
 import BookList from './components/BookList';
-import AuthorList from './components/AuthorList';
 import BookDetails from './components/BookDetails';
+import NewBookForm from './components/NewBookForm';
+
 
 function Auth({ currentUser, setCurrentUser }) {
 
@@ -86,8 +88,7 @@ function Auth({ currentUser, setCurrentUser }) {
   return (
     <div className="App">
 
-      <Header setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
+      <Header currentUser={currentUser}
               handleLogout={handleLogout}/>
 
       {/* <Search search={search} setSearch={setSearch}/> */}
@@ -114,10 +115,15 @@ function Auth({ currentUser, setCurrentUser }) {
           <AuthorList filteredAuthors={filteredAuthors}/>
         </Route>
 
-        <Route path='/'>
+        <Route path='/books'>
           <Search search={search} setSearch={setSearch}/>
           <BookList filteredBooks={filteredBooks}/>
         </Route>
+
+        <Route path='/me'>
+          <Me currentUser={currentUser} />
+        </Route>
+        
 
       </Switch>
 
