@@ -45,7 +45,7 @@ function SignUp({ setCurrentUser }) {
         <h1 className="loginHeader">Sign Up</h1>
 
         <p>
-          <label>
+          <label className='label'>
             Username
           </label>
           <input
@@ -58,7 +58,7 @@ function SignUp({ setCurrentUser }) {
         </p>
 
         <p>
-          <label>
+          <label className='label'>
             Email
           </label>
           <input
@@ -71,7 +71,7 @@ function SignUp({ setCurrentUser }) {
         </p>
 
         <p>
-          <label>
+          <label className='label'>
             Password
           </label>
           <input
@@ -84,7 +84,7 @@ function SignUp({ setCurrentUser }) {
         </p>
 
         <p>
-          <label>
+          <label className='label'>
             Password Confirmation
           </label>
           <input
