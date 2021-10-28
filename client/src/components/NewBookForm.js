@@ -1,17 +1,18 @@
 import { useState } from 'react';
-// import Select from 'react-select';
-// import makeAnimated from 'react-select/animated';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 
 function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
 
     const [selectedAuthors, SetSelectedAuthors] = useState([]);
 
+    const animatedComponents = makeAnimated();
     const authorNames = [];
 
     getAuthors.map(author => authorNames.push({value: author.name, label: author.name, id: author.id}))
 
-    const {title, image, isbn, desc, publisher} = newBookInput
+    const {title, image_url, isbn, description, publisher, author, price} = newBookInput
 
     return (
         <div className='book-form'>
@@ -31,8 +32,8 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
               <input type='text'
                        className='formText'
                        placeholder='Cover Image'
-                       name='image'
-                       value={image}
+                       name='image_url'
+                       value={image_url}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
 
               <input type='text'
@@ -45,8 +46,8 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
               <input type='text'
                        className='formText'
                        placeholder='Description'
-                       name='desc'
-                       value={desc}
+                       name='description'
+                       value={description}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
 
               <input type='text'
@@ -55,6 +56,24 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                        name='publisher'
                        value={publisher}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
+
+                <input type='text'
+                       className='formText'
+                       placeholder='Price'
+                       name='price'
+                       value={price}
+                       onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
+
+              <Select
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                     value={author}
+                    onChange={e => {
+                        setNewBook(formerBook => ({...formerBook, author: e}));
+                        SetSelectedAuthors(e)}}
+                    defaultValue={[authorNames[4]]}
+                    isMulti
+                    options={authorNames} />
 
               <input type='submit'
                      value='Submit' />
@@ -66,15 +85,17 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                 <p>{title}</p>
                 <br />
                 <h4>New Book Image:</h4>
-                <img src={image} alt={title}/>
+                <img src={image_url} alt={title}/>
                 <h4>ISBN: </h4>
                 <p>{isbn}</p>
                 <br />
                 <h4>New Book Description:</h4>
-                <p>{desc}</p>
+                <p>{description}</p>
                 <br />
                 <h4>New Book Publisher:</h4>
                 <p>{publisher}</p>
+                <br />
+                <p>{price}</p>
                 <br />
                 <h4>New Book Author:</h4>
                 {selectedAuthors.map(authorName => <p key={authorName.value}>{authorName.value}</p>)}

@@ -2,7 +2,7 @@
 
 function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
 
-    const {name, image, desc} = newAuthorInput;
+    const {name, image_url, description} = newAuthorInput;
     console.log(newAuthorInput)
 
     return (
@@ -22,15 +22,15 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
                 <input type='text'
                        className='formText'
                        placeholder='Image'
-                       name='image'
-                       value={image}
+                       name='image_url'
+                       value={image_url}
                        onChange={e => setNewAuthor({...newAuthorInput, [e.target.name]: e.target.value})} />
 
                 <input type='text'
                        className='formText'
                        placeholder='Description'
-                       name='desc'
-                       value={desc}
+                       name='description'
+                       value={description}
                        onChange={e => setNewAuthor({...newAuthorInput, [e.target.name]: e.target.value})} />
 
                 <input type='submit'
@@ -43,9 +43,9 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
                 <p>{name}</p>
                 <br />
                 <h4>New Author Image:</h4>
-                <img src={image} alt={name}/>
+                <img src={image_url} alt={name}/>
                 <h4>New Author Bio: </h4>
-                <p>{desc}</p>
+                <p>{description}</p>
             </div>
 
         </div>

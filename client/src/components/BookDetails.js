@@ -12,13 +12,13 @@ function BookDetails() {
     let history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/books/${id}`)
+        fetch(`/books/${id}`)
         .then(resp => resp.json())
         .then(book => {setSingleBook(book);
                        setAuthors(book.authors)})
     }, [id])
 
-    const {title, image, isbn, desc, publisher} = singleBook
+    const {title, image_url, isbn, description, publisher} = singleBook
     
     const authorNames = authors.map(el => {
         return (<Link to={`/authors`} key={el.name}>
@@ -28,14 +28,14 @@ function BookDetails() {
 
     return (
         <div className='bookDetails'>
-            <img src={image !== ''? image : placeHolder} alt={title}/>
+            <img src={image_url !== ''? image_url : placeHolder} alt={title}/>
 
             <h1>{title}</h1><br />
             <h2>Authored By:</h2>
             {authorNames}<br />
             <h3>{publisher} Publishing House</h3>
             <p>ISBN-10: {isbn}</p>
-            <p>{desc}</p>
+            <p>{description}</p>
             <Link to='/books' onClick={() => history.goBack()}>
                 <button>Go Back</button>
             </Link>

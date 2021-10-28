@@ -3,7 +3,7 @@ import AuthorCard from "./AuthorCard"
 
 function AuthorList({filteredAuthors}){
 
-    const authors = filteredAuthors.map(author =>
+    const authors =  filteredAuthors.map(author =>
         <AuthorCard authorObj={author} key={author.id} />)
 
 
