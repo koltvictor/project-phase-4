@@ -106,6 +106,9 @@
 .books-container,
 .authors-container {
   margin: 8rem;
+  background-image: url('https://www.teahub.io/photos/full/123-1236805_paint-design-colors-spray-drops-paint-splash-paint.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .book-cards,
