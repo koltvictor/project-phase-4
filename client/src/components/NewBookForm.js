@@ -15,9 +15,12 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
     const {title, image_url, isbn, description, publisher, author, price} = newBookInput
 
     return (
+        <>
+        <div className='bar'><h1>Add A New Book!</h1></div>
         <div className='book-form'>
 
-            <h2>Add A New Book!</h2>
+
+            {/* <h2>Add A New Book!</h2> */}
             <p>NOTE: If you can't find a specific author, please create them first!</p>
 
             <form id='newBookForm' onSubmit={e => handleSubmit(e)}>
@@ -102,6 +105,7 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
             </div>
  
         </div>
+        </>
     );
 
 }

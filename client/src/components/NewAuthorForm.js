@@ -6,6 +6,10 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
     console.log(newAuthorInput)
 
     return (
+        <>
+
+        <div className='bar'></div>
+
         <div className='author-form'>
 
             <h2>Additional Authors</h2>
@@ -49,6 +53,8 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
             </div>
 
         </div>
+
+        </>
     );
 
 }

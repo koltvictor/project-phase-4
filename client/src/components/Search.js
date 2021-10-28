@@ -2,7 +2,7 @@ import React from "react"
 
 
 
-function Search({search, setSearch}) {
+function Search({search, setSearch, word }) {
 
     
 
@@ -10,7 +10,7 @@ function Search({search, setSearch}) {
         <div className="search_bar">
             <input
                 type="text"
-                placeholder="Search by book title or author name"
+                placeholder={word}
                 value={search}
                 onChange={(e)=> setSearch(e.target.value)}
                 className="search_input"

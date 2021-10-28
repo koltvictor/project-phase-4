@@ -164,6 +164,14 @@
   padding:20px;
 }
 
+.bar {
+  margin-bottom: 30px;
+  background-color:rgb(106, 162, 208);
+  border: 2px solid rgb(66, 66, 215);
+  padding:20px;
+  height: 42px;
+}
+
 .search_input {
   text-align: center;
   width: 500px;

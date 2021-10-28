@@ -48,6 +48,9 @@ function Auth({ currentUser, setCurrentUser }) {
 
   const [search, setSearch] = useState("");
 
+  const author = "Search by First or Last Name";
+  const book = "Search by Book Title";
+
   useEffect(() => {
     fetch("/authors")
     .then(response => response.json())
@@ -63,7 +66,7 @@ function Auth({ currentUser, setCurrentUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     if(e.target.id === 'newBookForm')
-    {fetch(`http://localhost:3000/books`, {
+    {fetch(`/books`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newBookInput)})
@@ -71,7 +74,7 @@ function Auth({ currentUser, setCurrentUser }) {
       .then(() => setNewBook({title: '', image_url: '', isbn: '', description: '', publisher: '', price: '', author: []}))
     }
     else
-    {fetch(`http://localhost:3000/authors`, {
+    {fetch(`/authors`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newAuthorInput)})
@@ -111,12 +114,12 @@ function Auth({ currentUser, setCurrentUser }) {
         </Route>
 
         <Route path='/authors'>
-          <Search search={search} setSearch={setSearch}/>
+          <Search search={search} setSearch={setSearch} word={author} />
           <AuthorList filteredAuthors={filteredAuthors}/>
         </Route>
 
         <Route path='/books'>
-          <Search search={search} setSearch={setSearch}/>
+          <Search search={search} setSearch={setSearch} word={book} />
           <BookList filteredBooks={filteredBooks}/>
         </Route>
 
