@@ -17,7 +17,7 @@ import BookDetails from './components/BookDetails';
 import NewBookForm from './components/NewBookForm';
 
 
-function Auth({ currentUser, setCurrentUser }) {
+function Auth({ currentUser, setCurrentUser, handleBookDelete }) {
 
   const history = useHistory();
 
@@ -83,6 +83,11 @@ function Auth({ currentUser, setCurrentUser }) {
     }
   };
 
+  function handleDelete(id, cu) {
+   handleBookDelete(id, cu)
+    // .then(resp => console.log(resp))
+  };
+
   const filteredBooks = booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()));
 
   const filteredAuthors = getAuthors.filter(author => (author.name||'').toLowerCase().includes(search.toLowerCase()));
@@ -124,7 +129,7 @@ function Auth({ currentUser, setCurrentUser }) {
         </Route>
 
         <Route path='/me'>
-          <Me currentUser={currentUser} />
+          <Me currentUser={currentUser} handleDelete={handleDelete} />
         </Route>
         
 

@@ -11,6 +11,13 @@ function App() {
     const [currentUser, setCurrentUser] = useState(null)
     const [authChecked, setAuthChecked] = useState(false)
 
+    function handleBookDelete(id, cu) {
+      fetch(`/books/${id}`, {
+        method: 'DELETE'
+      })
+      .then(resp => resp.json())
+    }
+
     useEffect(() => {
       fetch('/me', {
         credentials: 'include'
@@ -25,7 +32,7 @@ function App() {
             setAuthChecked(true)
           }
         })
-    }, [])
+    }, [setCurrentUser])
 
   if(!authChecked) { return <div>UGH</div>}
 
@@ -36,6 +43,8 @@ function App() {
           <Auth
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
+            handleBookDelete={handleBookDelete}
+
           />
         ) : (
           <UnAuth
