@@ -64,7 +64,6 @@ const handleSubmit = (event) => {
             className="inputField"
           />
         </p>
-
         <p><button className="loginButton" type="submit">Log In</button></p>
         <p className="text-center">-- or --</p>
 
