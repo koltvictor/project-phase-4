@@ -293,7 +293,7 @@
   padding-right: 15px;
   width: 450px;
   height: 500px;
-  object-fit: fill;
+  object-fit: contain;
 }
 
 .bookDetails button:hover,
