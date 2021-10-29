@@ -35,10 +35,10 @@ const handleSubmit = (event) => {
 
       <Redirect to="/" />
 
-      <form onSubmit={handleSubmit} className="loginForm">
+      <form onSubmit={handleSubmit}>
         
         <h1 className="loginHeader">Log In</h1>
-
+        <div className="loginForm">
         <p>
           <label className="label">
             Username
@@ -64,6 +64,7 @@ const handleSubmit = (event) => {
             className="inputField"
           />
         </p>
+        </div>
         <br />
         <p><button className="loginButton" type="submit">Log In</button></p>
         

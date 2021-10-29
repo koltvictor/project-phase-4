@@ -58,6 +58,14 @@
   background-size: contain;
 }
 
+.loginForm {
+  background-color: rgba(53, 143, 53, .4);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, .4);
+  padding: 1rem;
+  margin-left:40rem;
+  margin-right:40rem;
+}
+
 .loginHeader  {
   padding-top: 3rem;
   font-size: 100px;
@@ -97,7 +105,7 @@
   opacity: 1;
   padding-left: .5em;
   font-family: 'Roboto', sans-serif;
-  font-size: calc(10px + 1vmin);
+  font-size: 1.25rem;
   
 }
 
@@ -452,6 +460,7 @@ input.formText {
 .myBooksList{
   color: white;
   text-align: left;
+  /* text-decoration: underline; */
 }
 
 .text-center{
