@@ -94,7 +94,7 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                 <p>{isbn}</p>
                 <br />
                 <h4>New Book Description:</h4>
-                <p>{description}</p>
+                <p >{description}</p>
                 <br />
                 <h4>New Book Publisher:</h4>
                 <p>{publisher}</p>

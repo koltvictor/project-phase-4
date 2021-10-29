@@ -17,10 +17,8 @@ const handleSubmit = (event) => {
       body: JSON.stringify({username, password})
     })
       .then(res => {
-        console.log(res)
         if (res.ok) {
           res.json().then(user => {
-            console.log(user)
             setCurrentUser(user)
             history.push('/books')
           })

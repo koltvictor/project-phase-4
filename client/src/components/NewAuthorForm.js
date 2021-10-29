@@ -3,7 +3,6 @@
 function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
 
     const {name, image_url, description} = newAuthorInput;
-    console.log(newAuthorInput)
 
     return (
         <div className="addAuthorPage"><br /><br /><br />
