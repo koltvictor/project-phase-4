@@ -2,17 +2,21 @@ Rails.application.routes.draw do
   
   # resources :author_books
 
-  resources :authors, only: [:index, :create]
+  namespace :api do 
 
-  resources :books, only: [:index, :show, :create, :destroy]
+    resources :authors, only: [:index, :create]
 
-  get '/me', to: 'users#show'
+    resources :books, only: [:index, :show, :create, :destroy]
 
-  post '/signup', to: 'users#create'
+    get '/me', to: 'users#show'
 
-  post '/login', to: 'session#create'
+    post '/signup', to: 'users#create'
 
-  delete '/logout', to: 'session#destroy'
+    post '/login', to: 'session#create'
+
+    delete '/logout', to: 'session#destroy'
+
+  end
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

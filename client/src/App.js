@@ -14,7 +14,7 @@ function App() {
 
 
     useEffect(() => {
-      fetch('/me', {
+      fetch('/api/me', {
         credentials: 'include'
       })
         .then(res => {

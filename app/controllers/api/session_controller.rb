@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class Api::SessionController < ApplicationController
 
     skip_before_action :confirm_auth, only: [:create]
 

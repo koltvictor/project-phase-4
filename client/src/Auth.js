@@ -22,7 +22,7 @@ function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
   const history = useHistory();
 
   const handleLogout = () => {
-    fetch(`/logout`, {
+    fetch(`/api/logout`, {
       method: 'DELETE',
       credentials: 'include'
     })
@@ -54,13 +54,13 @@ function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
   const book = "Search by Book Title";
 
   useEffect(() => {
-    fetch("/authors")
+    fetch("/api/authors")
     .then(response => response.json())
     .then(authorArr => setGetAuthors(authorArr))
     }, [setNewAuthor, newAuthorInput, newBookInput])
 
   useEffect(() => {
-    fetch(`/books`)
+    fetch(`/api/books`)
     .then(resp => resp.json())
     .then(books => setBooksList(books))
   },[setNewBook, newBookInput, newAuthorInput]);
@@ -68,7 +68,7 @@ function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
   function handleSubmit(e) {
     e.preventDefault();
     if(e.target.id === 'newBookForm')
-    {fetch(`/books`, {
+    {fetch(`/api/books`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newBookInput)})
@@ -76,7 +76,7 @@ function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
       .then(() => setNewBook({title: '', image_url: '', isbn: '', description: '', publisher: '', price: '', author: []}))
     }
     else
-    {fetch(`/authors`, {
+    {fetch(`/api/authors`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newAuthorInput)})
@@ -86,7 +86,7 @@ function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
   };
 
   function handleBookDelete(id, index) {
-    fetch(`/books/${id}`, {
+    fetch(`/api/books/${id}`, {
       method: 'DELETE'
     })
     .then(fetch('/me')

@@ -13,7 +13,7 @@ function SignUp({ setCurrentUser }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('/signup', {
+    fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -100,7 +100,7 @@ function SignUp({ setCurrentUser }) {
 
         <p className="text-center">-- or --</p>
 
-        <p className="text-center"><Link className="loginButton" to="/login">Log In</Link></p>
+        <p className="text-center"><Link className="loginButton" to="/api/login">Log In</Link></p>
 
       </form>
 

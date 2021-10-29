@@ -12,7 +12,7 @@ function UnAuth({ setCurrentUser }) {
           <Route exact path="/">
             <LogIn setCurrentUser={setCurrentUser} />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path="/api/signup">
             <SignUp setCurrentUser={setCurrentUser}/>
           </Route>
           <Redirect to="/" />

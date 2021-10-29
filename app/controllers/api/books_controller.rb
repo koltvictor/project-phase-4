@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Api::BooksController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
 

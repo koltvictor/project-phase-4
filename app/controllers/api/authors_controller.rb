@@ -1,4 +1,4 @@
-class AuthorsController < ApplicationController
+class Api::AuthorsController < ApplicationController
 
     def index 
         render json: Author.all 
