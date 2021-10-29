@@ -8,16 +8,10 @@ import UnAuth from './UnAuth';
 
 function App() {
 
-    const [currentUser, setCurrentUser] = useState(null)
-    const [authChecked, setAuthChecked] = useState(false)
+    const [currentUser, setCurrentUser] = useState(null);
+    const [authChecked, setAuthChecked] = useState(false);
+    const [userBooks, setUserBooks] = useState([]);
 
-    function handleBookDelete(id, cu) {
-      fetch(`/books/${id}`, {
-        method: 'DELETE'
-      })
-      .then(resp => console.log(resp.ok))
-      .then(fetch('/me', {credentials: 'include'}))
-    }
 
     useEffect(() => {
       fetch('/me', {
@@ -27,6 +21,7 @@ function App() {
           if (res.ok) {
             res.json().then((user) => {
               setCurrentUser(user)
+              setUserBooks(user.books)
               setAuthChecked(true)
             })
           } else {
@@ -44,8 +39,8 @@ function App() {
           <Auth
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
-            handleBookDelete={handleBookDelete}
-            
+            userBooks={userBooks}
+            setUserBooks={setUserBooks}
           />
         ) : (
           <UnAuth

@@ -35,10 +35,10 @@ const handleSubmit = (event) => {
 
       <Redirect to="/" />
 
-      <form onSubmit={handleSubmit} className="loginForm">
+      <form onSubmit={handleSubmit}>
         
         <h1 className="loginHeader">Log In</h1>
-
+        <div className="loginForm">
         <p>
           <label className="label">
             Username
@@ -64,12 +64,12 @@ const handleSubmit = (event) => {
             className="inputField"
           />
         </p>
-        <br />
+
         <p><button className="loginButton" type="submit">Log In</button></p>
-        
         <p className="text-center">-- or --</p>
 
         <p className="text-center"><Link className="loginButton" to="/signup">Sign Up</Link></p>
+        </div>
         
 
       </form>
@@ -79,3 +79,4 @@ const handleSubmit = (event) => {
 }
 
 export default LogIn;
+

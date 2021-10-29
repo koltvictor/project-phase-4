@@ -17,7 +17,7 @@ import BookDetails from './components/BookDetails';
 import NewBookForm from './components/NewBookForm';
 
 
-function Auth({ currentUser, setCurrentUser, handleBookDelete }) {
+function Auth({ currentUser, setCurrentUser, userBooks, setUserBooks }) {
 
   const history = useHistory();
 
@@ -41,6 +41,8 @@ function Auth({ currentUser, setCurrentUser, handleBookDelete }) {
   const [newAuthorInput, setNewAuthor] = useState(
     {name: '', image_url: '', description: ''}
     );
+
+  //hold books in state, then delete deleted one from the array, then put the state in dep arr for book and author fetch
 
   const [booksList, setBooksList] = useState([]);
 
@@ -83,9 +85,14 @@ function Auth({ currentUser, setCurrentUser, handleBookDelete }) {
     }
   };
 
-  function handleDelete(id, cu) {
-   handleBookDelete(id, cu)
-    // .then(resp => console.log(resp))
+  function handleBookDelete(id, index) {
+    fetch(`/books/${id}`, {
+      method: 'DELETE'
+    })
+    .then(fetch('/me')
+      .then(resp => resp.json())
+      .then(user => console.log(user)))
+    
   };
 
   const filteredBooks = booksList.filter(book => (book.title||'').toLowerCase().includes(search.toLowerCase()));
@@ -129,7 +136,9 @@ function Auth({ currentUser, setCurrentUser, handleBookDelete }) {
         </Route>
 
         <Route path='/me'>
-          <Me currentUser={currentUser} handleDelete={handleDelete} />
+          <Me currentUser={currentUser} 
+              handleBookDelete={handleBookDelete}
+              userBooks={userBooks} />
         </Route>
         
 

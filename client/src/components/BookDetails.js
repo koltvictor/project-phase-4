@@ -6,7 +6,7 @@ function BookDetails() {
     const [singleBook, setSingleBook] = useState({});
     const [authors, setAuthors] = useState([]);
 
-    const placeHolder = 'https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088777_640.png'
+    const placeHolder = 'https://pbs.twimg.com/media/DAB0513WAAAIQpd.png'
 
     const id = useParams().id;
     let history = useHistory();
@@ -37,7 +37,7 @@ function BookDetails() {
             <p>ISBN-10: {isbn}</p>
             <p>{description}</p>
             <Link to='/books' onClick={() => history.goBack()}>
-                <button>Go Back</button>
+                <button>Back</button>
             </Link>
         </div>
     );

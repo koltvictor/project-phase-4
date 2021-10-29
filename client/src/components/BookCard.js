@@ -5,7 +5,7 @@ function BookCard({ book }) {
 
     const [selectedClass, setClass] = useState('notDisplayed')
 
-    const placeHolder = 'https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088777_640.png'
+    const placeHolder = 'https://pbs.twimg.com/media/DAB0513WAAAIQpd.png'
 
     const {title, image_url=placeHolder, id} = book 
 

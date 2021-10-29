@@ -1,13 +1,14 @@
 
 
-function Me({ currentUser, handleDelete }) {
+function Me({ currentUser, handleBookDelete, userBooks }) {
 
-    const userbooks = (currentUser.books);
-    const bookList = userbooks.map(book => 
-         <li key={book.id}>
+    const bookList = userBooks.map(book =>{ 
+        const index = userBooks.indexOf(book);
+        // console.log(index)
+         return <li key={book.id}>
              {book.title}
-             <button className="deleteButton" onClick={() => handleDelete(book.id, currentUser)}>Delete Book</button>
-         </li>
+             <button className="deleteButton" onClick={() => handleBookDelete(book.id, index)}>Delete</button>
+         </li>}
     )
 
     return (
